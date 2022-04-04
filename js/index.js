@@ -159,122 +159,122 @@ function inputValue (a) {
 inputValue (960)
 
 
-// Game snake  
+// // Game snake  
 
-var keys = {};
-window.addEventListener("keydown",
-      function(e){
-         keys[e.keyCode] = true;
-         switch(e.keyCode){
-            case 37: case 39: case 38:  case 40: 
-            case 32: e.preventDefault(); break; 
-            default: break; 
-         }
-      },
-false);
-window.addEventListener('keyup',
-      function(e){
-         keys[e.keyCode] = false;
-      },
-false);
+// var keys = {};
+// window.addEventListener("keydown",
+//       function(e){
+//          keys[e.keyCode] = true;
+//          switch(e.keyCode){
+//             case 37: case 39: case 38:  case 40: 
+//             case 32: e.preventDefault(); break; 
+//             default: break; 
+//          }
+//       },
+// false);
+// window.addEventListener('keyup',
+//       function(e){
+//          keys[e.keyCode] = false;
+//       },
+// false);
 
-const snake = document.querySelector('#snake');
-const ctx = snake.getContext("2d");
+// const snake = document.querySelector('#snake');
+// const ctx = snake.getContext("2d");
 
-const ground = new Image();
-ground.src = "games/snake/image/ground.png";
+// const ground = new Image();
+// ground.src = "games/snake/image/ground.png";
 
-const foodImg = new Image();
-foodImg.src = "games/snake/image/food.png";
+// const foodImg = new Image();
+// foodImg.src = "games/snake/image/food.png";
 
-let box = 32;
+// let box = 32;
 
-let score = 0;
+// let score = 0;
 
-let food = {
-   x: Math.floor((Math.random() * 17 + 1)) * box, 
-   y: Math.floor((Math.random() * 15 + 3)) * box, 
-};
+// let food = {
+//    x: Math.floor((Math.random() * 17 + 1)) * box, 
+//    y: Math.floor((Math.random() * 15 + 3)) * box, 
+// };
 
-let snakeBody = [];
-snakeBody[0] = {
-   x: 9 * box,
-   y: 10 * box,
-};
+// let snakeBody = [];
+// snakeBody[0] = {
+//    x: 9 * box,
+//    y: 10 * box,
+// };
 
-document.addEventListener("keydown", direction);
+// document.addEventListener("keydown", direction);
 
-let dir;
+// let dir;
 
-function direction(e) {
-   if(e.keyCode == 37 && dir != 'right') {
-      dir="left";
-   }
-   else if(e.keyCode == 38 && dir != 'down') {
-      dir="up";
-   }
-   else if(e.keyCode == 39 && dir != 'left') {
-      dir="right";
-   }
-   else if(e.keyCode == 40 && dir != 'up') {
-      dir="down";
-   }
-}
+// function direction(e) {
+//    if(e.keyCode == 37 && dir != 'right') {
+//       dir="left";
+//    }
+//    else if(e.keyCode == 38 && dir != 'down') {
+//       dir="up";
+//    }
+//    else if(e.keyCode == 39 && dir != 'left') {
+//       dir="right";
+//    }
+//    else if(e.keyCode == 40 && dir != 'up') {
+//       dir="down";
+//    }
+// }
 
-function eatTeil (head, snakeBody) {
-   for (let i = 0; i < snakeBody.length; i++){
-      if (head.x == snakeBody[i].x && head.y == snakeBody[i].y)
-      clearInterval(game);
-   }
-}
+// function eatTeil (head, snakeBody) {
+//    for (let i = 0; i < snakeBody.length; i++){
+//       if (head.x == snakeBody[i].x && head.y == snakeBody[i].y)
+//       clearInterval(game);
+//    }
+// }
 
-function drawGame() {
-   ctx.drawImage(ground,0,0);
+// function drawGame() {
+//    ctx.drawImage(ground,0,0);
 
-   ctx.drawImage(foodImg, food.x, food.y);
+//    ctx.drawImage(foodImg, food.x, food.y);
 
-   for(let i = 0; i < snakeBody.length; i++) {
-      ctx.fillStyle = i === 0 ? "green": "red";
-      ctx.fillRect(snakeBody[i].x, snakeBody[i].y, box, box);
-   }
+//    for(let i = 0; i < snakeBody.length; i++) {
+//       ctx.fillStyle = i === 0 ? "green": "red";
+//       ctx.fillRect(snakeBody[i].x, snakeBody[i].y, box, box);
+//    }
 
-   ctx.fillStyle = "white";
-   ctx.font = "50px Arial";
-   ctx.fillText(score, box*2.5, box*1.7)
+//    ctx.fillStyle = "white";
+//    ctx.font = "50px Arial";
+//    ctx.fillText(score, box*2.5, box*1.7)
 
-   let snakeX = snakeBody[0].x;
-   let snakeY = snakeBody[0].y;
+//    let snakeX = snakeBody[0].x;
+//    let snakeY = snakeBody[0].y;
 
    
 
-   if (snakeX == food.x && snakeY == food.y) {
-      score++;
-      food = {
-         x: Math.floor((Math.random() * 17 + 1)) * box, 
-         y: Math.floor((Math.random() * 15 + 3)) * box, 
-      };
-   } else {
-      snakeBody.pop();
-   }
+//    if (snakeX == food.x && snakeY == food.y) {
+//       score++;
+//       food = {
+//          x: Math.floor((Math.random() * 17 + 1)) * box, 
+//          y: Math.floor((Math.random() * 15 + 3)) * box, 
+//       };
+//    } else {
+//       snakeBody.pop();
+//    }
 
-   if (snakeX < box || snakeX > box*17 || snakeY < 3 * box || snakeY > box * 17) {
-      clearInterval(game);
-   }
+//    if (snakeX < box || snakeX > box*17 || snakeY < 3 * box || snakeY > box * 17) {
+//       clearInterval(game);
+//    }
 
-   if(dir == "left") snakeX -= box;
-   if(dir == "right") snakeX += box;
-   if(dir == "up") snakeY -= box;
-   if(dir == "down") snakeY += box;
+//    if(dir == "left") snakeX -= box;
+//    if(dir == "right") snakeX += box;
+//    if(dir == "up") snakeY -= box;
+//    if(dir == "down") snakeY += box;
 
-   let newHead = {
-      x: snakeX,
-      y: snakeY
-   };
+//    let newHead = {
+//       x: snakeX,
+//       y: snakeY
+//    };
 
-   eatTeil(newHead, snakeBody);
+//    eatTeil(newHead, snakeBody);
    
-   snakeBody.unshift(newHead);
+//    snakeBody.unshift(newHead);
 
-}
+// }
 
-let game = setInterval(drawGame, 100);
+// let game = setInterval(drawGame, 100);
