@@ -22,6 +22,7 @@ body {
    font-size: calc(var(--index)* .8);
    line-height: 1.75;
    height: var(--depth);
+   font-family: 'Nunito', sans-serif;
 }
 
 .body.active {

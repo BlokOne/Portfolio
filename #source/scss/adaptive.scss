@@ -4,8 +4,10 @@ $scaleMobile: 3.2;
 $scaleMobileBig: 4.1;
 $scaleTablet: 5.14;
 .device-adaptiv {
+   width: 100vh;
+   height: 100vh;
    display: flex;
-   align-items: center;
+   align-items: stretch;
    justify-content: center;
 }
 
@@ -23,14 +25,23 @@ $scaleMobileBig: 4.1;
 $scaleTablet: 5.14;
 
 .device {
+
    transition: all 0.5s cubic-bezier(.21,.16,0,.96);
    &__wrapper {
-      transform: scale(0.8);
-
-
+      transform: scale(0.5);
    }
    
+	&__text {
+      top: 40%;
+      position: absolute;
+      color: black;
+      width: 60%;
+      right: -60%;
+
+   }
+
    &__body {
+      margin-top: 85%;
       height: 240*$scaleMobile*1px;
       width: 120*$scaleMobile*1px;
       border: 2px solid black;
@@ -147,12 +158,13 @@ $scaleTablet: 5.14;
 }
 
 .device {
-
+   
    &__wrapper.tablet {
 
    }
 
    &__body.tablet {
+      margin-top: 0;
       height: 241.3*$scaleTablet*1px+150px;
       width: 185.8*$scaleTablet*1px+150px;
       border: 0px;
@@ -207,12 +219,14 @@ $scaleTablet: 5.14;
    }
 
    &__body.mobile-big {
+      margin-top: 0;
       height: 600*2+22px;
       width: 600+22px;
       border: 2px solid black;
       border-radius: 13*$scaleMobileBig*1px;
       position: relative;
       background-color: black;
+      overflow: hidden;
    }
 
    &__display.mobile-big {
@@ -329,6 +343,7 @@ $scaleTablet: 5.14;
    }
 
    &__body.desktop {
+      margin-top: 0;
       height: 241.3*$scaleTablet*1px+150px;
       width: 1440+150px;
       height: 850px+350px;
