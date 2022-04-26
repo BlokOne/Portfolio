@@ -1,0 +1,10 @@
+.site-body {
+   opacity: 0;
+   position: relative;
+}
+
+.site-body.active {
+   opacity: 1;
+   padding-top: 1800px;
+   transition: all 1s ease;
+}

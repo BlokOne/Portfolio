@@ -1,0 +1,401 @@
+
+
+$scaleMobile: 3.2;
+$scaleMobileBig: 4.1;
+$scaleTablet: 5.14;
+.device-adaptiv {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.device__button {
+   display: flex;
+   justify-content: center;
+   gap: 15px;
+   button {
+      font-size: 25px;
+      background-color: #FFF;
+   }
+}
+$scaleMobile: 3.2;
+$scaleMobileBig: 4.1;
+$scaleTablet: 5.14;
+
+.device {
+   transition: all 0.5s cubic-bezier(.21,.16,0,.96);
+   &__wrapper {
+      transform: scale(0.8);
+
+
+   }
+   
+   &__body {
+      height: 240*$scaleMobile*1px;
+      width: 120*$scaleMobile*1px;
+      border: 2px solid black;
+      border-radius: 13*$scaleMobile*1px;
+      position: relative;
+   }
+   
+   &__display {
+      position: absolute;
+      top: 17.39*2*$scaleMobile*1px;
+      width: 320px;
+      height: 88.61*2*$scaleMobile*1px;
+      border: 2px solid black;
+      transform: translate(-50%);
+      left: 50%;
+      border-radius: 3px;
+      overflow: hidden;
+
+   }
+
+   &__button-block {
+      position: absolute;
+      right: 9.28*2*$scaleMobile*1px;
+      width: 9.45*2*$scaleMobile*1px;
+      height: 0.5px;
+      border: 2px solid black;
+      top: -4px;
+      border-bottom: 0px;
+   }
+
+   &__button-up {
+      position: absolute;
+      height: 8.6*2*$scaleMobile*1px;
+      width: 1px;
+      border: 2px solid black;
+      border-right: 0px;
+      bottom: 170*$scaleMobile*1px;
+      left: -4px;
+   }
+
+   &__button-down {
+      position: absolute;
+      height: 8.6*2*$scaleMobile*1px;
+      width: 1px;
+      border: 2px solid black;
+      border-right: 0px;
+      bottom: 146*$scaleMobile*1px;
+      left: -4px;
+   }
+
+   &__button-mute {
+      position: absolute;
+      height: 6*$scaleMobile*1px;
+      width: 1px;
+      border: 2px solid black;
+      border-right: 0px;
+      bottom: 97.11*2*$scaleMobile*1px;
+      left: -4px;
+   }
+
+   &__button-home {
+      height: 10.2*2*$scaleMobile*1px;
+      width: 10.2*2*$scaleMobile*1px;
+      border: 2px solid black;
+      border-radius: 102*$scaleMobile*1px;
+      position: absolute;
+      left: 50%;
+      bottom: 9px;
+      transform: translate(-50%);
+      &::after {
+         content: "";
+         width: 9*$scaleMobile*1px;
+         height: 9*$scaleMobile*1px;
+         border: 2px solid black;
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%,-50%)
+      }
+   }
+
+   &__camera {
+      position: absolute;
+      top: 13.5*$scaleMobile*1px;
+      left: 50%;
+      width: 4*$scaleMobile*1px;
+      height: 4*$scaleMobile*1px;
+      border-radius: 4*$scaleMobile*1px;
+      border: 2px solid black;
+      transform: translate(-50%,-50%);
+
+   }
+
+   &__speaker {
+      position: absolute;
+      top: 10.75*2*$scaleMobile*1px;
+      height: 2px;
+      width: 10.8*2*$scaleMobile*1px;
+      border: 2px solid black;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 3px;
+   }
+}
+.html__offer {
+   height: 100%; 
+}
+
+.bitrex {
+	border-radius: 5px;
+	background: #FFF;
+   height: 100%;
+   width: 100%;
+}
+
+.device {
+
+   &__wrapper.tablet {
+
+   }
+
+   &__body.tablet {
+      height: 241.3*$scaleTablet*1px+150px;
+      width: 185.8*$scaleTablet*1px+150px;
+      border: 0px;
+      border: 2px solid black;
+      border-radius: 13*$scaleTablet*1px;
+      position: relative;
+   }
+
+   &__display.tablet {
+      position: absolute;
+      top: 17.39*$scaleTablet*1px;
+      width: 768px+200px;
+      height: 1024px+150px;
+      border: 2px solid black;
+      border-radius: 3px;
+      overflow: hidden;
+   }
+
+   &__button-block.tablet {
+      border: 0px;
+   }
+
+   &__button-up.tablet {
+      border: 0px;
+   }
+
+   &__button-down.tablet {
+      border: 0px;
+   }
+
+   &__button-mute.tablet {
+      border: 0px;
+   }
+
+   &__button-home.tablet {
+      bottom: 23px;
+      height: 11.3*2*$scaleMobile*1px;
+      width: 11.3*2*$scaleMobile*1px;
+   }
+
+   &__camera.tablet {}
+
+   &__speaker.tablet {
+      border: 0;
+   }
+}
+
+.device {
+
+   &__wrapper.mobile-big {
+      overflow: hidden;
+   }
+
+   &__body.mobile-big {
+      height: 600*2+22px;
+      width: 600+22px;
+      border: 2px solid black;
+      border-radius: 13*$scaleMobileBig*1px;
+      position: relative;
+      background-color: black;
+   }
+
+   &__display.mobile-big {
+      position: absolute;
+      top:11px;
+      width: 600px;
+      height: 600*2+22px-22;
+      border: 2px solid black;
+      transform: translate(-50%);
+      left: 50%;
+      border-radius: 13*$scaleMobileBig*1px;
+      overflow: hidden;
+   }
+
+   &__button-block.mobile-big {
+      position: absolute;
+      right: 9.28*2*$scaleMobile*1px;
+      width: 9.45*2*$scaleMobile*1px;
+      height: 0.5px;
+      border: 2px solid black;
+      top: -3px;
+      border-bottom: 0px;
+   }
+
+   &__button-up.mobile-big {
+      position: absolute;
+      height: 8.6*2*$scaleMobile*1px;
+      width: 5px;
+      border: 5px solid black;
+      border-right: 0px;
+      bottom: 1000-180px;
+      left: -5px;
+   }
+
+   &__button-down.mobile-big {
+      position: absolute;
+      height: 8.6*2*$scaleMobile*1px;
+      width: 5px;
+      border: 5px solid black;
+      border-right: 0px;
+      bottom: 1000-100px;
+      left: -5px;
+   }
+
+   &__button-mute.mobile-big {
+      position: absolute;
+      height: 6*$scaleMobile*1px;
+      width: 5px;
+      border: 5px solid black;
+      border-right: 0px;
+      bottom: 1000px;
+      left: -5px;
+   }
+
+   &__button-home.mobile-big {
+      height: 92px;
+      width: 373.2px;
+
+      border-radius: 0;
+      border-top: 0px;
+      border-left: 0px;
+      border-radius: 102*$scaleMobile*1px;
+      position: absolute;
+      background-color: black;
+      left: 50%;
+      top: -30px;
+      transform: translate(-50%);
+      &::after {
+         content: " ";
+         width: 10px;
+         height: 10px;
+         background-color: white;
+         border-radius: 10px;
+         position: absolute;
+         border: 1px solid white;
+         left: -5px;
+         top: 48px;
+      }
+      &::before {
+         content: " ";
+         width: 10px;
+         height: 10px;
+         background-color: white;
+         border-radius: 10px;
+         position: absolute;
+         border: 1px solid white;
+         right: -12px;
+         top: 42px;
+      }
+   }
+
+   &__camera.mobile-big {
+      top: 40px;
+      background: grey;
+      left: 63%;
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      border: 2px solid white;
+      transform: translate(-50%,-50%);
+   }
+
+   &__speaker.mobile-big {
+      top: 40px;
+      width: 100px;
+      border: 2px solid white;
+   }
+}
+
+.device {
+
+   &__wrapper.desctop {
+
+   }
+
+   &__body.desktop {
+      height: 241.3*$scaleTablet*1px+150px;
+      width: 1440+150px;
+      height: 850px+350px;
+      border: 0px;
+      border: 2px solid black;
+      border-radius: 13*$scaleTablet*1px;
+      position: relative;
+      background-color: white;
+
+   }
+
+   &__display.desktop {
+      position: absolute;
+      top: 0;
+      width: 1590px;
+      height: 950px;
+      border-top-left-radius: 13*$scaleTablet*1px;
+      border-top-right-radius: 13*$scaleTablet*1px;
+      border-left: 75px solid black;
+      border-right: 75px solid black;
+      border-top: 17.39*$scaleTablet*1px solid black;
+      border-bottom: 17.39*$scaleTablet*1px solid black;
+      overflow: hidden;
+   }
+
+   &__button-block.desktop {
+      border: 0px;
+   }
+
+   &__button-up.desktop {
+      border: 0px;
+   }
+
+   &__button-down.desktop {
+      border: 0px;
+   }
+
+   &__button-mute.desktop {
+      border: 0px;
+   }
+
+   &__button-home.desktop {
+      display: none;
+   }
+
+   &__camera.desktop {
+      top: 860px;
+      z-index: -1;
+      border: 400px solid transparent; border-bottom: 800px solid #9C9C9C;
+      &::after {
+         content: "";
+         width:810px;
+         height: 50px;
+         background-color: #828282;
+         position: absolute;
+         bottom: -800px;
+         border-top-left-radius: 10px;
+         border-top-right-radius: 10px;
+         left: 50%;
+         transform: translate(-50%);
+      }
+
+   }
+
+   &__speaker.desktop {
+      border: 0;
+   }
+
+
+}
