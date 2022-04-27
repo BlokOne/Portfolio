@@ -14,4 +14,9 @@
    transform: translate(-50%, -15%);
 }
 
+.site-body.unactive {
+   opacity: 0;
+   pointer-events: none;
+}
+
 
