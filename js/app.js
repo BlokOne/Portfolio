@@ -340,6 +340,6 @@ const calculator = function () {
          input.value = resultToString;
       } else if (e.target.classList[0] === 'symbolAC') {
          input.value = "";
-      }
+      } console.log(a,b)
    }
    )

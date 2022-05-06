@@ -4,13 +4,15 @@ $scaleMobile: 3.2;
 $scaleMobileBig: 4.1;
 $scaleTablet: 5.14;
 .device-adaptiv {
-   width: 100vh;
-   height: 100vh;
+   width: 100%;
+   height: 100%;
+   position: fixed;
    display: flex;
    align-items: stretch;
    justify-content: center;
    opacity: 1;
    transition: opacity 0.5s ease;
+   transform: translate(0, 10%);
 }
 
 
@@ -24,16 +26,17 @@ $scaleTablet: 5.14;
       background-color: #FFF;
    }
 }
-$scaleMobile: 3.2;
-$scaleMobileBig: 4.1;
-$scaleTablet: 5.14;
 
 .device {
 
-   transition: all 0.5s cubic-bezier(.21,.16,0,.96);
+   transition: all 0.3s cubic-bezier(.21,.16,0,.96);
    &__wrapper {
       transform: scale(0.5);
-   }
+      @media (min-width: 766px) {
+         transform: scale(0.4);
+      }
+   } 
+   
    
 	&__text {
       top: 40%;

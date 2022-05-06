@@ -6,12 +6,21 @@
           transform: translate(-100%, 15%);
 }
 
+.site-body__title {
+  position: fixed;
+  color: black;
+  top: 20%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  font-size: calc(var(--index)* 2.5);
+}
+
 .site-body.active {
   position: fixed;
   opacity: 1;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
-  left: 30%;
+  left: 50%;
   margin: 0 auto;
   -webkit-transform: translate(-50%, -15%);
           transform: translate(-50%, -15%);

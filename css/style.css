@@ -74,8 +74,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------*/
 .device-adaptiv {
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -88,6 +89,8 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
+  -webkit-transform: translate(0, 10%);
+          transform: translate(0, 10%);
 }
 
 .device__button {
@@ -106,13 +109,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .device {
-  -webkit-transition: all 0.5s cubic-bezier(0.21, 0.16, 0, 0.96);
-  transition: all 0.5s cubic-bezier(0.21, 0.16, 0, 0.96);
+  -webkit-transition: all 0.3s cubic-bezier(0.21, 0.16, 0, 0.96);
+  transition: all 0.3s cubic-bezier(0.21, 0.16, 0, 0.96);
 }
 
 .device__wrapper {
   -webkit-transform: scale(0.5);
           transform: scale(0.5);
+}
+
+@media (min-width: 766px) {
+  .device__wrapper {
+    -webkit-transform: scale(0.4);
+            transform: scale(0.4);
+  }
 }
 
 .device__text {
@@ -494,12 +504,21 @@ h1, h2, h3, h4, h5, h6 {
           transform: translate(-100%, 15%);
 }
 
+.site-body__title {
+  position: fixed;
+  color: black;
+  top: 20%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+  font-size: calc(var(--index)* 2.5);
+}
+
 .site-body.active {
   position: fixed;
   opacity: 1;
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
-  left: 30%;
+  left: 50%;
   margin: 0 auto;
   -webkit-transform: translate(-50%, -15%);
           transform: translate(-50%, -15%);
@@ -515,35 +534,67 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0;
   position: fixed;
   left: -1000%;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   -webkit-transition: all 0.7s ease;
   transition: all 0.7s ease;
 }
 
-.app__text-first {
-  left: 50%;
+.app__weather-text {
+  position: absolute;
+  top: 30%;
+  padding: 3%;
+  height: 50%;
 }
 
-.app__text-second {
-  right: 50%;
-}
-
-.app__text.active {
-  opacity: 1;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-
-.app__text {
-  opacity: 0;
+.app__weather-wrapper {
   pointer-events: none;
-  color: black;
-  position: fixed;
-  top: 25%;
-  width: 30%;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.93);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+  position: absolute;
+  z-index: 100;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.app__weather-wrapper.active {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: all 0.5s ease;
+          transform: all 0.5s ease;
+}
+
+.app__calculator-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.93);
+  position: absolute;
+  z-index: 100;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.app__calculator-text {
+  position: absolute;
+  top: 30%;
+  padding: 3%;
+  height: 50%;
+}
+
+.app__calculator-wrapper.active {
+  opacity: 1;
+  pointer-events: all;
+  -webkit-transform: all 0.5s ease;
+          transform: all 0.5s ease;
 }
 
 .app.active {
@@ -556,20 +607,20 @@ h1, h2, h3, h4, h5, h6 {
 .cube {
   -webkit-animation: rotation 10s ease-in-out;
           animation: rotation 10s ease-in-out;
-  position: absolute;
+  position: fixed;
   top: calc(50% - 480px / 2);
-  left: calc(50% - 480px / 2);
+  right: calc(var(--size-small) / 2 * var(--index) + var(--gutter));
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transform: perspective(1000px) rotateX(0deg) rotateY(180deg) scale(1);
-          transform: perspective(1000px) rotateX(0deg) rotateY(180deg) scale(1);
+  -webkit-transform: perspective(1000px) rotateX(0deg) rotateY(180deg) scale(1) translate(-50%, 0);
+          transform: perspective(1000px) rotateX(0deg) rotateY(180deg) scale(1) translate(-50%, 0);
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
 }
 
 .cube__site {
-  height: 100%;
-  width: 100%;
+  width: calc(var(--index) * var(--size-small));
+  height: 480px;
   padding: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -582,14 +633,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cube.active {
-  left: calc(70% - 480px / 2);
-  -webkit-transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
-          transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+  -webkit-transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateX(calc(var(--index) * var(--size-small)*-1));
+          transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateX(calc(var(--index) * var(--size-small)*-1));
 }
 
 .back {
-  width: 480px;
-  height: 480px;
   -webkit-transform: rotateX(-180deg) translateZ(20px);
           transform: rotateX(-180deg) translateZ(20px);
   background-color: red;
@@ -601,7 +649,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .top {
   height: 25px;
-  width: 480px;
+  width: calc(var(--index) * var(--size-small));
   -webkit-transform: rotateX(90deg) translateZ(20px);
           transform: rotateX(90deg) translateZ(20px);
   background: linear-gradient(-45deg, #f7f7f799, #fffffe);
@@ -610,7 +658,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .front {
-  width: 480px;
+  width: calc(var(--index) * var(--size-small));
   height: 480px;
   -webkit-transform: rotateX(0deg) translateZ(20px);
           transform: rotateX(0deg) translateZ(20px);
@@ -621,7 +669,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .bottom {
   height: 25px;
-  width: 480px;
+  width: calc(var(--index) * var(--size-small));
   -webkit-transform: rotateX(-90deg) translateZ(460px);
           transform: rotateX(-90deg) translateZ(460px);
   background: linear-gradient(-45deg, #f7f7f799, #fffffe);
@@ -630,7 +678,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .left {
-  height: 480px;
   width: 20px;
   -webkit-transform: rotateY(-90deg) translateZ(20px);
           transform: rotateY(-90deg) translateZ(20px);
@@ -640,10 +687,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .right {
-  height: 480px;
   width: 20px;
-  -webkit-transform: rotateY(90deg) translateZ(460px);
-          transform: rotateY(90deg) translateZ(460px);
+  -webkit-transform: rotateY(90deg) translateZ(calc(var(--index) * var(--size-small)-50px));
+          transform: rotateY(90deg) translateZ(calc(var(--index) * var(--size-small)-50px));
   background: linear-gradient(-45deg, #f7f7f799, #fffffe);
   -webkit-animation: gradient 4s ease infinite;
           animation: gradient 4s ease infinite;
@@ -657,7 +703,7 @@ img {
 #app {
   position: relative;
   font-family: "Rubik", sans-serif;
-  width: 480px;
+  width: calc(var(--index) * var(--size-small));
   overflow: hidden;
   height: 480px;
   -webkit-transform: rotate(180deg);
@@ -668,20 +714,20 @@ img {
 }
 
 #root {
-  width: 480px;
-  height: 480px;
+  width: 100%;
+  height: 100%;
 }
 
 .popup {
   position: absolute;
   left: 0;
   top: 0;
-  width: 480px;
+  width: calc(var(--index) * var(--size-small));
   -webkit-transform: translateX(-200%);
           transform: translateX(-200%);
   background: #8781c5;
   border-radius: 4px;
-  height: 480px;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -737,7 +783,7 @@ img {
 }
 
 .form {
-  width: 480px;
+  width: calc(var(--index) * var(--size-small));
 }
 
 .form-group {
@@ -815,7 +861,7 @@ img {
   height: 270px;
   position: absolute;
   z-index: 0;
-  width: 480px;
+  width: calc(var(--index) * var(--size-small));
 }
 
 .container.is-day::before {

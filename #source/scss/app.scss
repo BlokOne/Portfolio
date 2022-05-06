@@ -3,30 +3,62 @@
    opacity: 0;
    position: fixed;
    left: -1000%;
-   width: 100vw;
-   height: 100vh;
+   width: 100%;
+   height: 100%;
    transition: all 0.7s ease;
 
-   &__text-first {
-      left: 50%;
+   &__weather-text {
+      position: absolute;
+      top: 30%;
+      padding: 3%;
+      height: 50%;
+   }
 
-   }
-   &__text-second {
-      right: 50%;
-   }
-   &__text.active {
-      opacity: 1;
-      transition: all 0.5s ease;
-   }
-   &__text {
-      opacity: 0;
+	&__weather-wrapper {
       pointer-events: none;
-      color: black;
-      position: fixed;
-      top: 25%;
-      width: 30%;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.93);
+      transform:rotate(180deg);
+      position: absolute;
+      z-index: 100;
       transition: all 0.5s ease;
    }
+   &__weather-wrapper.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: all 0.5s ease;
+   }
+
+   &__calculator-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.93);
+      position: absolute;
+      z-index: 100;
+      transition: all 0.5s ease;
+   }
+
+   &__calculator-text {
+      position: absolute;
+      top: 30%;
+      padding: 3%;
+      height: 50%;
+   }
+
+   &__calculator-wrapper.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: all 0.5s ease;
+   }
+
+
 }
 
 .app.active{
@@ -39,15 +71,15 @@
 
 .cube {
    animation: rotation 10s ease-in-out;
-   position: absolute;
+   position: fixed;
    top:  calc(50% - 480px / 2);
-   left: calc(50% - 480px / 2);
+   right: calc(var(--size-small) / 2 * var(--index) + var(--gutter));
    transform-style: preserve-3d;
-   transform: perspective(1000px) rotateX(0deg) rotateY(180deg) scale(1);
+   transform: perspective(1000px) rotateX(0deg) rotateY(180deg) scale(1) translate(-50%, 0);
    transition: all 1s ease;
    &__site {
-      height: 100%;
-      width: 100%;
+      width: calc(var(--index) * var(--size-small));
+      height: 480px;
       padding: 20px;
       box-sizing: border-box;
       position: absolute;
@@ -59,15 +91,13 @@
 }
 
 .cube.active {
-   left: calc(70% - 480px / 2);
-   transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1);
+
+   transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) translateX(calc(var(--index) * var(--size-small)*-1));
 
 }
 
 
 .back   {
-   width: 480px;
-   height: 480px;
    transform: rotateX(-180deg) translateZ(20px) ;
    background-color: red;
    background: #0a081f;
@@ -77,13 +107,13 @@
 }
 .top    {
    height: 25px;
-   width: 480px;
+   width: calc(var(--index) * var(--size-small));
    transform: rotateX( 90deg)  translateZ(20px);
    background: linear-gradient(-45deg, #f7f7f799, #fffffe);
    animation: gradient 10s ease infinite;
 }
 .front  {
-   width: 480px;
+   width: calc(var(--index) * var(--size-small));
    height: 480px;
    transform:rotateX( 0deg) translateZ(20px);
    background: linear-gradient(-45deg, #d21616, #db2f17, #bea71b, #f7eec6);
@@ -91,13 +121,12 @@
 }
 .bottom {
    height: 25px;
-   width: 480px;
+   width: calc(var(--index) * var(--size-small));
    transform: rotateX(-90deg)  translateZ(460px);
    background: linear-gradient(-45deg, #f7f7f799, #fffffe);
    animation: gradient 4s ease infinite;
 }
 .left   {
-   height: 480px;
    width: 20px;
    transform: rotateY(-90deg)  translateZ(20px);
    background: linear-gradient(-45deg, #f7f7f799, #fffffe);
@@ -106,9 +135,8 @@
 
 }
 .right  {
-   height: 480px;
    width: 20px;
-   transform: rotateY( 90deg)  translateZ(460px);
+   transform: rotateY( 90deg)  translateZ(calc(var(--index) * var(--size-small)-50px));
    background: linear-gradient(-45deg, #f7f7f799, #fffffe);
    animation: gradient 4s ease infinite;
 }
@@ -122,7 +150,7 @@ img {
 #app {
    position: relative;
    font-family: "Rubik", sans-serif;
-   width: 480px;
+   width: calc(var(--index) * var(--size-small));
    overflow: hidden;
    height: 480px;
    transform: rotate(180deg);
@@ -131,19 +159,19 @@ img {
    }
 
 #root {
-      width: 480px;
-      height: 480px;
+      width: 100%;
+      height: 100%;
    }
 
    .popup {
       position: absolute;
       left: 0;
       top: 0;
-      width: 480px;
+      width: calc(var(--index) * var(--size-small));
       transform: translateX(-200%);
       background: #8781c5;
       border-radius: 4px;
-      height: 480px;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -188,7 +216,7 @@ img {
    
 
    .form {
-      width: 480px;
+      width: calc(var(--index) * var(--size-small));
    }
    
    .form-group {
@@ -243,7 +271,7 @@ img {
       height: 270px;
       position: absolute;
       z-index: 0;
-      width: 480px;
+      width: calc(var(--index) * var(--size-small));
     }
     .container.is-day::before {
       background: linear-gradient(-45deg, #f7eaca, #dc9990, #d5cda1, #aaaad1);
@@ -479,3 +507,5 @@ img {
       }
    }
    
+
+
