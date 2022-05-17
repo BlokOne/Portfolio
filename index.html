@@ -54,7 +54,7 @@
          <div class="first-screen__frame frame frame__right frame__bg">
             <div class="frame__items  ">
                <div class="frame__item">
-                  <h3>HTML 5</h3>
+                  <h3>HTML&nbsp5</h3>
                   <img src="./image/html5.svg" alt="">
                </div>
                <div class="frame__item">
@@ -62,7 +62,7 @@
                   <img src="./image/css3.svg" alt="">
                </div>
                <div class="frame__item">
-                  <h3>Java Script</h3>
+                  <h3>Java&nbspScript</h3>
                   <img src="./image/js.svg" alt="">
                </div>
                <div class="frame__item">
@@ -86,7 +86,7 @@
       </div>
    </section>
    <section class="site-body">
-      <h2 class="site-body__title">Немного&nbspадаптива</h2>
+      <h2 class="block__title">Немного&nbspадаптива</h2>
       <div class="device-adaptiv">
          
          <div class="device__wrapper mobile-device">
@@ -112,6 +112,7 @@
       </div>
    </section>
    <section class="app">
+      <h2 class="block__title">Немного&nbspработы&nbspс&nbspAPI</h2>
       <div class="app__cube cube ">
          <div class="cube__site back">
             <div class="app__weather-wrapper ">
@@ -169,11 +170,135 @@
          </div>
    
       </div>
-      <div class="app__text-first app__text">
+
+   </section>
+   <section class="game">
+            <h2 class="block__title" style="font-size: calc(var(--index)* 2.5); top:5%">Игра&nbspна&nbspCanvas</h2>
+      <div class="game__setting active">
+        <div class="game__setting-wrapper">
+          <div class="game__setting-numbers">
+            <h2>Выберите количество игроков</h2> 
+            <div class="game__setting-number">
+              <p class="game__setting-number-title">3</p>
+              <input class="game__setting-input" type="range" step="1" max="4" min="1">
+            </div>
+            <button class="game__setting-button-start">
+              Начать
+            </button>
+          </div>
+          <div class="game__setting-color">
+          </div>
+        </div>
+  
       </div>
-      <div class="app__text-second app__text ">
+      <div class="game__end">
+        <div class="game__end-wrapper">
+          <div class="game__end-title">
+            
+          </div>
+          <div class="game__end-buttons">
+            <button class="game__end-replay">
+              <img src="image/icons/reload.png" alt="">
+            </button>
+            <button class="game__end-close">
+              <div class="game__end-icon"></div>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="game__wrapper  ">
+        <canvas class="canvas " id="game" width="600" height="600"></canvas>
+        <div class="game__wrapper-players">
+          <div class="game__players">
+            <span></span>
+          </div>
+          <button id="role">
+            <div class="cube-game">
+              <article class="back-game ">
+                <div class="dots"></div>
+              </article>
+              <article class="top-game ">
+                <div class="dots"></div>
+                <div class="dots"></div>
+              </article>
+              <article class="front-game ">
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+              </article>
+              <article class="bottom-game ">
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+              </article>
+              <article class="left-game ">
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+              </article>
+              <article class="right-game ">
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+                <div class="dots"></div>
+              </article>
+          </div>
+          </button>
+          <div class="game__buttons">
+            <button>
+              <img src="image/icons/wheel.png" class="mix" alt="">
+            </button>
+            
+            <div class="game__buttons-sound">
+  
+            </div>
+            <button>  
+              <img src="image/icons/exit.png" class="exit" alt="">
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="footer">
+      <h1 class="footer__title">Спасибо за внимание</h1>
+
+      <div class="footer__contacts">
+         <p>Мои контакты для связи</p>
+         <ul>
+            <li>
+               <div class="footer__contact">
+                  <a href="tel:+79313602008">
+                     <p>Мобильный номер</p>
+                     <img src="image/icons/telephone.svg" alt="" />
+                  </a>
+               </div>
+            </li>
+            <li>
+               <div class="footer__contact">
+                  <a href="https://t.me/Blokone">
+                     <p>Telegram</p>
+                     <img src="image/icons/telegram.svg" alt="" />
+                  </a>
+               </div>
+            </li>
+            <li>
+               <div class="footer__contact">
+                  <a href="mailto: mez-kirill@yandex.ru">
+                     <p>Email</p>
+                     <img src="image/icons/email.svg" alt="" />
+                  </a>
+               </div>
+            </li>
+         </ul>
       </div>
    </section>
+   <script src="js/game.js"></script>
    <script src="./js/slider.js"></script>
    <script src="js/app.js"></script>
 </body>

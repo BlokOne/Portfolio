@@ -232,6 +232,10 @@ function correctTime (timezone) {
    return correctTime
 }
 
+
+// Калькулятор 
+
+
 const calculatorApp = document.querySelector('.calculator__app'),
 calculatorButtons = document.querySelector('.calculator__buttons'),
 calculatorInput = document.querySelector('.calculator__input-wrap');
